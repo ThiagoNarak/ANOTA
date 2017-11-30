@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.unifor.anota.NotaActivity">
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="45dp"
+        android:text="Titulo:"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTituloNota"
+        android:layout_width="262dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="37dp"
+        android:ems="10"
+        android:hint="titulo da Nota"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toRightOf="@+id/textViewTitulo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewVermehlo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:drawable/checkbox_off_background"
+        app:srcCompat="@color/colorAccent"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewVerde"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/editTituloNota" />
+
+    <ImageView
+        android:id="@+id/imageViewAmarelo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="25dp"
+        android:background="@android:drawable/checkbox_off_background"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewVermehlo"
+        app:layout_constraintTop_toBottomOf="@+id/editTituloNota"
+        app:srcCompat="@android:color/holo_orange_light" />
+
+    <ImageView
+        android:id="@+id/imageViewAzul"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:background="@android:drawable/checkbox_off_background"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewAmarelo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTituloNota"
+        app:srcCompat="@android:color/holo_blue_dark" />
+
+    <ImageView
+        android:id="@+id/imageViewVerde"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="101dp"
+        android:layout_marginTop="25dp"
+        android:background="@android:drawable/checkbox_off_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTituloNota"
+        app:srcCompat="@android:color/holo_green_light" />
+
+    <ImageButton
+        android:id="@+id/imageButtonAnexo"
+        android:layout_width="44dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo"
+        app:srcCompat="@drawable/clip" />
+
+    <EditText
+        android:id="@+id/EditTextCampo"
+        android:layout_width="321dp"
+        android:layout_height="253dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="182dp"
+        android:background="@color/cardview_shadow_end_color"
+        android:elevation="15dp"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Texto digite aqui!"
+        android:inputType="textMultiLine"
+    android:textAlignment="viewStart"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDeletar"
+        android:layout_width="162dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/square"
+        android:text="Deletar"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditTextCampo" />
+
+</android.support.constraint.ConstraintLayout>

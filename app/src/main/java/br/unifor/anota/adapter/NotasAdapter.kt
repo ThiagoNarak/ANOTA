@@ -22,18 +22,13 @@ class NotasAdapter( private var notas:ArrayList<Nota>,  private var context:Cont
     var mLayoutInflater:LayoutInflater
     lateinit var mRecycleViewOnClickListener:RecycleViewOnClickListerner
 
-    fun setRecycleViewOnClickListener(mRecycleViewOnClickListener:RecycleViewOnClickListerner){
-        this.mRecycleViewOnClickListener = mRecycleViewOnClickListener
-    }
-
-
-
     init {
         mLayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
    inner class ViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView),View.OnClickListener{
-        fun bindView(nota: Nota) {
+
+       fun bindView(nota: Nota) {
             val titulo = itemView.textView4
             val cor = itemView.imageView3
 
@@ -41,18 +36,20 @@ class NotasAdapter( private var notas:ArrayList<Nota>,  private var context:Cont
             cor.setColorFilter(nota.cor)
             itemView.setOnClickListener(this)
         }
-
-
         override fun onClick(v: View?) {
             mRecycleViewOnClickListener.onClickListener(v!!,position)
 
         }
 
 
+   }
+    fun setRecycleViewOnClickListener(mRecycleViewOnClickListener:RecycleViewOnClickListerner){
+        this.mRecycleViewOnClickListener = mRecycleViewOnClickListener
     }
     fun reload(notas:ArrayList<Nota>) {
         this.notas = notas
     }
+
     fun  clear() {
         var size = this.notas.size;
         if (size > 0) {

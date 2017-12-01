@@ -27,20 +27,22 @@ class BancoDados(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
     }
 
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
+
         val sql_notas = ("CREATE TABLE " + TABLE_NOTAS
                 + "(codigo INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "tituloConstrutor TEXT, "
                 + "descricao TEXT, "
                 + "cor INT, "
                 + "foto BYTE); ")
-        sqLiteDatabase.execSQL(sql_notas)
 
+        sqLiteDatabase.execSQL(sql_notas)
     }
 
     override fun onUpgrade(sqLiteDatabase: SQLiteDatabase, i: Int, i1: Int) {
 
     }
     fun buscaNotas(titulo:String): ArrayList<Nota>{
+
         val notaArrayList = ArrayList<Nota>()
         val sql = "SELECT * FROM " + TABLE_NOTAS +" WHERE tituloConstrutor LIKE '%$titulo%'"
         val cursor = readableDatabase.rawQuery(sql, null)
@@ -79,25 +81,6 @@ class BancoDados(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
         return notaArrayList
     }
 
-    fun deleteNota(){
-        val sql = "DELETE FROM " + TABLE_NOTAS+ " WHERE tituloConstrutor like '%android.support.v7%'"
-        val database = this.writableDatabase
-        database.execSQL(sql)
-
-    }
-    fun editNota2(nota:Nota){
-
-        val sql = "UPDATE "+ TABLE_NOTAS+ " SET" +
-                " tituloConstrutor = '${nota.tituloConstrutor}'," +
-                " descricao = '${nota.descricao}'," +
-                " cor = '${nota.cor}'," +
-                " foto = '${nota.foto}'" +
-                " WHERE codigo = '${nota.codigo}'"
-        val database = this.writableDatabase
-        database.execSQL(sql)
-        println("nota = ${nota.codigo}")
-
-    }
 
     fun editNota(nota:Nota) {
         val contentValues = ContentValues()
@@ -119,19 +102,9 @@ class BancoDados(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
         contentValues.put("cor", nota.cor)
         contentValues.put("foto", nota.foto)
 
-
-
-
-
         writableDatabase.insert(TABLE_NOTAS, null, contentValues)
-
-
     }
 
-    fun delete() {
-        writableDatabase.delete(TABLE_NOTAS, null, null)
-
-    }
 
     fun deleteNotas(codigo: Int) {
 
@@ -139,9 +112,6 @@ class BancoDados(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
 
         db.execSQL("DELETE FROM $TABLE_NOTAS WHERE codigo = '$codigo'")
 
-
     }
-
-
 }
 
